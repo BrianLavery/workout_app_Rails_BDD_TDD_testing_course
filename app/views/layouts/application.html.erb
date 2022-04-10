@@ -33,8 +33,8 @@
               <% end %>
               <% if user_signed_in? %>
                 <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-                <div class="navbar-right mx-3 px-3">
-                  <p class="navbar-text px-3 mx-3">
+                <div class="navbar-right">
+                  <p class="navbar-text" style="margin-right: 24px;">
                     Signed in as <%= current_user.email %>
                   </p>
                 </div>
