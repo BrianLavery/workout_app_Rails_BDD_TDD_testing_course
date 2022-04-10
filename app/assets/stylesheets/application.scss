@@ -8,11 +8,11 @@ body {
 
 // navbar styling
 .navbar {
-  background: #555555;
+  background: #D0D8E4;
 }
 
 .navbar-header a.navbar-brand {
-  color: #ffffff;
+  color: #404855;
   padding-top: 25px;
   padding-bottom: 50px;
   font-size: 150%;
@@ -20,7 +20,7 @@ body {
 }
 
 .navbar-header a.navbar-brand:hover {
-  color: #ff0000;
+  color: #1111DD;
 }
 
 .nav > li > a {
@@ -29,22 +29,22 @@ body {
 }
 
 .navbar-default .navbar-nav > .active > a {
-  background: #555555;
-  color: #ffffff;
+  background: #D0D8E4;
+  color: #404855;
 }
 
 .navbar-default .navbar-nav > .active > a:hover {
-  background: #555555;
-  color: #ff0000;
+  background: #D0D8E4;
+  color: #1111DD;
 }
 
 .navbar-default .navbar-nav > li > a {
-  color: #ffffff;
+  color: #404855;
   font-size: 130%;
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-  color: #ff0000;
+  color: #1111DD;
 }
 
 // Devise Error Messages
@@ -66,7 +66,7 @@ body {
 }
 
 .signed-in-user .navbar-text {
-  color: #ffffff;
+  color: #404855;
 }
 
 // Link styling
@@ -80,7 +80,7 @@ body {
 }
 
 .destroy-btn:hover {
-  color: #ff0000;
+  color: #1111DD;
   font-weight: bold;
   font-size: 120%;
 }
