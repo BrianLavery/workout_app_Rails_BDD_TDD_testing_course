@@ -38,6 +38,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'guard'
   gem 'guard-rspec'
+  gem 'guard-cucumber'
 end
 
 group :test do
