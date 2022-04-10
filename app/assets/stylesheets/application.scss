@@ -2,6 +2,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+// https://github.com/jhilden/jquery-ui-sass-rails
+@import "jquery.ui.core"; // you always want that stylesheet
+@import "jquery.ui.theme"; // import this when you want to build on jQuery UI's themeing
+@import "jquery.ui.datepicker"; // import all the modules you need
+
 body {
   margin-top: 80px;
 }
