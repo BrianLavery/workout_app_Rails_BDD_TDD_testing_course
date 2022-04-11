@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_10_124812) do
+ActiveRecord::Schema.define(version: 2022_04_11_120006) do
 
   create_table "exercises", force: :cascade do |t|
     t.integer "duration_in_min"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 2022_04_10_124812) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_exercises_on_user_id"
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "friend_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["friend_id"], name: "index_friendships_on_friend_id"
+    t.index ["user_id"], name: "index_friendships_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,4 +46,6 @@ ActiveRecord::Schema.define(version: 2022_04_10_124812) do
   end
 
   add_foreign_key "exercises", "users"
+  add_foreign_key "friendships", "friends"
+  add_foreign_key "friendships", "users"
 end

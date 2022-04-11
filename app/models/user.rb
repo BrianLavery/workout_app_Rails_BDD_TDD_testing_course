@@ -4,7 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :exercises
+  has_many :exercises, dependent: :destroy
+  has_many :friendships, dependent: :destroy
+  has_many :friends, through: :friendships, class_name: 'User'
 
   validates :first_name, :last_name, presence: true
 
@@ -14,7 +16,7 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
-    def self.search_by_name(name)
+  def self.search_by_name(name)
     names_array = name.split(' ')
 
     if names_array.size == 1
@@ -28,9 +30,10 @@ class User < ApplicationRecord
     end
   end
 
-  # def follows_or_same?(new_friend)
-  #   friendships.map(&:friend).include?(new_friend) || self == new_friend
-  # end
+  def follows_or_same?(new_friend)
+    # Friendships gives array -> map to friends -> check if included
+    friendships.map(&:friend).include?(new_friend) || self == new_friend
+  end
 
   # def current_friendship(friend)
   #   friendships.where(friend: friend).first
