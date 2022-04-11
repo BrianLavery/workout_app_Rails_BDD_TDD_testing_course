@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Listing Exercises' do
   before do
-    @john = User.create(email: 'john@example.com', password: 'password')
+        @john = User.create(email: 'john@example.com', password: 'password', first_name: 'John', last_name: 'Doe')
     login_as(@john)
 
     @exercise1 = @john.exercises.create(duration_in_min: 20, workout: 'My body building activity', workout_date: Date.today)
