@@ -10,7 +10,7 @@ RSpec.feature 'Hiding sign in and sign up links' do
 
     expect(page).to have_link("Sign in")
     expect(page).to have_link("Sign up")
-    expect(page).not_to have_link("Logout")
+    expect(page).not_to have_button("Logout")
   end
 
   scenario 'expect links to disappear after successful sign in' do
@@ -19,6 +19,6 @@ RSpec.feature 'Hiding sign in and sign up links' do
 
     expect(page).not_to have_link("Sign in")
     expect(page).not_to have_link("Sign up")
-    expect(page).to have_link("Logout")
+    expect(page).to have_button("Logout")
   end
 end

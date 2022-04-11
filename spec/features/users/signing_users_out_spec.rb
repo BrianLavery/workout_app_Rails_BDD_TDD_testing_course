@@ -8,7 +8,7 @@ RSpec.feature 'User sign up' do
 
   scenario 'signing user out' do
     visit root_path
-    click_link 'Logout'
+    click_button 'Logout'
 
     expect(page).to have_content("Signed out successfully")
     expect(page).not_to have_content("Sign out")

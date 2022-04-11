@@ -7,19 +7,41 @@ RSpec.feature "Following Friends" do
     login_as(@john)
   end
 
-  scenario 'if signed in' do
+  scenario 'if signed in and not yet followed peter' do
     visit root_path
 
     expect(page).to have_content(@john.full_name)
     expect(page).to have_content(@peter.full_name)
 
-    href_follow_john = "/friendships?friend_id=#{@john.id}"
-    expect(page).not_to have_link("Follow", :href => href_follow_john)
+    # href_follow_peter = "/friendships?friend_id=#{@peter.id}"
+    # expect(page).to have_link("Follow", :href => href_follow_peter)
 
-    link_follow_peter = "a[href='/friendships?friend_id=#{@peter.id}']"
-    find(link_follow_peter).click
+    # Page should have a form to follow peter - (form as we use the button helper)
+    expect(page).to have_xpath("//form[@action='/friendships?friend_id=#{@peter.id}']")
 
-    href_follow_peter = "/friendships?friend_id=#{@peter.id}"
-    expect(page).not_to have_link("Follow", :href => href_follow_peter)
+    # href_follow_john = "/friendships?friend_id=#{@john.id}"
+    # expect(page).not_to have_button("Follow", :href => href_follow_john)
+    expect(page).not_to have_xpath("//form[@action='/friendships?friend_id=#{@john.id}']")
+  end
+
+  scenario 'if signed in and then followed peter' do
+    visit root_path
+
+    follow_peter_form = page.find(:xpath, "//form[@action='/friendships?friend_id=#{@peter.id}']")
+    # follow_peter_form.click_on(class: 'btn')
+    follow_peter_form.find('.btn').click
+
+    expect(page).not_to have_xpath("//form[@action='/friendships?friend_id=#{@peter.id}']")
+
+    # link_follow_peter = "a[href='/friendships?friend_id=#{@peter.id}']"
+    # find(link_follow_peter).click
+
+    # href_follow_peter = "/friendships?friend_id=#{@peter.id}"
+    # expect(page).not_to have_link("Follow", :href => href_follow_peter)
   end
 end
+
+
+# Used:
+# https://stackoverflow.com/questions/43396872/capybara-click-element-by-class-name
+# https://gist.github.com/tomas-stefano/6652111

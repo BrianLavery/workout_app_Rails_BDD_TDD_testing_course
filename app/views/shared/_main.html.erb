@@ -1,4 +1,6 @@
-<div class="container">
+<!-- Line below checks if have content called whole page (exercises index) -->
+<!-- If so will be container-fluid class -->
+<div class="<%= content_for?(:whole_page) ? 'container-fluid' : 'container' %>">
   <div class="row">
     <div class="col-mx-auto">
       <% flash.each do |key, message| %>
@@ -9,4 +11,5 @@
     </div>
   </div>
   <%= yield %>
+  <%= yield :whole_page %>
 </div>
