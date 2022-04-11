@@ -24,6 +24,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'jquery-ui-sass-rails'
 gem 'd3-rails'
+gem 'will_paginate-bootstrap'
 
 group :development, :test do
   gem 'rspec-rails', '~>3.5.0'
