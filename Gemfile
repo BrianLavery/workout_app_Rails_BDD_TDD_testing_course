@@ -23,6 +23,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'jquery-ui-sass-rails'
+gem 'd3-rails'
 
 group :development, :test do
   gem 'rspec-rails', '~>3.5.0'

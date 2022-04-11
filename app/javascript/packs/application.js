@@ -1,11 +1,18 @@
-require("@rails/ujs").start()
-// require("turbolinks").start()
-require("@rails/activestorage").start()
-require("channels")
+require("@rails/ujs").start();
+require("turbolinks").start();
+require("@rails/activestorage").start();
+require("channels");
+require("bootstrap/dist/js/bootstrap");
+
+// From Margot file
+import "bootstrap"
+import Rails from '@rails/ujs'
+
+// https://github.com/iblue/d3-rails
+require("d3")
 
 // https://matthewhoelter.com/2021/08/13/how-to-install-bootstrap-5-in-ruby-on-rails-6-with-webpack.html
 require("@popperjs/core")
-import "bootstrap"
 
 // https://stackoverflow.com/questions/57555708/rails-6-how-to-add-jquery-ui-through-webpacker
 global.$ = require("jquery") // THIS IS MAKING jQuery AVAILABLE EVEN INSIDE Views FOLDER
