@@ -46,6 +46,5 @@ ActiveRecord::Schema.define(version: 2022_04_11_120006) do
   end
 
   add_foreign_key "exercises", "users"
-  add_foreign_key "friendships", "friends"
   add_foreign_key "friendships", "users"
 end
