@@ -7,6 +7,9 @@ class User < ApplicationRecord
   has_many :exercises, dependent: :destroy
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships, class_name: "User"
+  has_one :room
+
+  after_create :create_chatroom
 
   validates :first_name, :last_name, presence: true
 
@@ -39,10 +42,10 @@ class User < ApplicationRecord
     friendships.where(friend: friend).first
   end
 
-  # private
+  private
 
-  # def create_chatroom
-  #   hyphenated_username = self.full_name.split.join('-')
-  #   Room.create(name: hyphenated_username, user_id: self.id)
-  # end
+  def create_chatroom
+    hyphenated_username = self.full_name.split.join('-')
+    Room.create(name: hyphenated_username, user_id: self.id)
+  end
 end
