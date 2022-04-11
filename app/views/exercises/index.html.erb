@@ -41,6 +41,17 @@
 </div>
 
 <div class="col-md-4 col-xs-12">
+  <div id="chat-window">
+    <header><%= current_room.name %></header>
+
+    <div id="form-box">
+      <%= form_for @message do |f| %>
+        <%= f.text_field :body, id: 'message-field', class: 'form-control pull-left' %>
+        <%= f.submit 'Post', id: 'post-btn', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+
   <h1 class="text-center">My Friends</h1>
 
   <% @friends.each do |friend| %>
